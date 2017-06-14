@@ -1664,6 +1664,72 @@ return $driver;
       ),
     ),
   ),
+  'parser.company.readonly' => 
+  array (
+    'class' => 'Demo\\Parser\\TDBMRetriever',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'tdbmService',
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'companies',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'value' => 
+        array (
+          'id' => 'id',
+        ),
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      3 => 
+      array (
+        'value' => 'Erreur base de données',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'parser.string' => 
+  array (
+    'class' => 'MetaHydrator\\Parser\\StringParser',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'Valeur invalide',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
   'patch.default_type' => 
   array (
     'class' => 'Mouf\\Utils\\Patcher\\PatchType',
@@ -2700,6 +2766,20 @@ return rtrim(sys_get_temp_dir(), '/\\').'/mouftwigtemplatemain_'.$posixGetuid.st
 	 */
 	 public static function getPackageRenderer_moufhtml_widgets_messageservice() {
 	 	return MoufManager::getMoufManager()->get('packageRenderer_mouf/html.widgets.messageservice');
+	 }
+
+	/**
+	 * @return Demo\Parser\TDBMRetriever
+	 */
+	 public static function getParser_company_readonly() {
+	 	return MoufManager::getMoufManager()->get('parser.company.readonly');
+	 }
+
+	/**
+	 * @return MetaHydrator\Parser\StringParser
+	 */
+	 public static function getParser_string() {
+	 	return MoufManager::getMoufManager()->get('parser.string');
 	 }
 
 	/**
