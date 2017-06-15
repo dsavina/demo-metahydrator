@@ -2233,6 +2233,150 @@ return rtrim(sys_get_temp_dir(), \'/\\\\\').\'/mouftwigtemplatemain_\'.$posixGet
       ),
     ),
   ),
+  'validator.pattern.email' => 
+  array (
+    'class' => 'Demo\\Validator\\RegexValidator',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => '/^[a-zA-z0-9.-]+\\@[a-zA-z0-9.-]+.[a-zA-Z]+$/',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'Email invalide',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'validator.pattern.name' => 
+  array (
+    'class' => 'Demo\\Validator\\RegexValidator',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => '/^[a-zA-Zàâäéèêëỳÿŷùüûìïîòôö\' -]*$/',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'Uniquement des lettres, tirets ou apostrophe',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'validator.pattern.phone' => 
+  array (
+    'class' => 'Demo\\Validator\\RegexValidator',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => '/^(0|\\+33( ?\\(0\\))? ?)[1-9]([-. ]?[0-9]{2}){4}$/',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'Numéro de téléphone invalide',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'validator.required' => 
+  array (
+    'class' => 'MetaHydrator\\Validator\\NotEmptyValidator',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'Ce champ est requis',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'validator.unique.users_email' => 
+  array (
+    'class' => 'Demo\\Validator\\TDBMUniqueValidator',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'tdbmService',
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'users',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'value' => 'email',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      3 => 
+      array (
+        'value' => 'Cet email est déjà utilisé',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
   'whoopsMiddleware' => 
   array (
     'class' => 'Middlewares\\Whoops',
@@ -2920,6 +3064,41 @@ return rtrim(sys_get_temp_dir(), '/\\').'/mouftwigtemplatemain_'.$posixGetuid.st
 	 */
 	 public static function getUserService() {
 	 	return MoufManager::getMoufManager()->get('userService');
+	 }
+
+	/**
+	 * @return Demo\Validator\RegexValidator
+	 */
+	 public static function getValidator_pattern_email() {
+	 	return MoufManager::getMoufManager()->get('validator.pattern.email');
+	 }
+
+	/**
+	 * @return Demo\Validator\RegexValidator
+	 */
+	 public static function getValidator_pattern_name() {
+	 	return MoufManager::getMoufManager()->get('validator.pattern.name');
+	 }
+
+	/**
+	 * @return Demo\Validator\RegexValidator
+	 */
+	 public static function getValidator_pattern_phone() {
+	 	return MoufManager::getMoufManager()->get('validator.pattern.phone');
+	 }
+
+	/**
+	 * @return MetaHydrator\Validator\NotEmptyValidator
+	 */
+	 public static function getValidator_required() {
+	 	return MoufManager::getMoufManager()->get('validator.required');
+	 }
+
+	/**
+	 * @return Demo\Validator\TDBMUniqueValidator
+	 */
+	 public static function getValidator_unique_users_email() {
+	 	return MoufManager::getMoufManager()->get('validator.unique.users_email');
 	 }
 
 	/**
