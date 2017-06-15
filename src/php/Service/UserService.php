@@ -4,6 +4,7 @@ namespace Demo\Service;
 use Demo\Model\Bean\User;
 use Demo\Model\Dao\UserDao;
 use Mouf\Database\TDBM\NoBeanFoundException;
+use Mouf\Hydrator\Hydrator;
 use Porpaginas\Result;
 
 class UserService
@@ -12,14 +13,20 @@ class UserService
      * @var UserDao
      */
     private $userDao;
+    /**
+     * @var Hydrator
+     */
+    private $userHydrator;
 
     /**
      * UserService constructor.
      * @param UserDao $userDao
+     * @param Hydrator $userHydrator
      */
-    public function __construct(UserDao $userDao)
+    public function __construct(UserDao $userDao, $userHydrator)
     {
         $this->userDao = $userDao;
+        $this->userHydrator = $userHydrator;
     }
 
     /**
@@ -47,10 +54,10 @@ class UserService
      */
     public function createUser($data)
     {
-        // TODO
-        return [
-            'todo' => 'everything'
-        ];
+        /** @var User $user */
+        $user = $this->userHydrator->hydrateNewObject($data, User::class);
+        $this->userDao->save($user);
+        return $user;
     }
 
     /**
@@ -59,6 +66,7 @@ class UserService
      */
     public function editUser(User $user, array $data)
     {
-        // TODO
+        $this->userHydrator->hydrateObject($data, $user);
+        $this->userDao->save($user);
     }
 }

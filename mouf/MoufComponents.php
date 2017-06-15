@@ -2156,6 +2156,15 @@ return rtrim(sys_get_temp_dir(), \'/\\\\\').\'/mouftwigtemplatemain_\'.$posixGet
         array (
         ),
       ),
+      1 => 
+      array (
+        'value' => NULL,
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
     ),
   ),
   'whoopsMiddleware' => 

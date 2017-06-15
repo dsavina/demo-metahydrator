@@ -2,6 +2,7 @@
 namespace Demo\Controller\Api;
 
 use Demo\Service\UserService;
+use MetaHydrator\Exception\HydratingException;
 use Mouf\Database\TDBM\NoBeanFoundException;
 use Mouf\Mvc\Splash\Annotations\Get;
 use Mouf\Mvc\Splash\Annotations\Post;
@@ -66,8 +67,12 @@ class UserApiController
     public function createUser(ServerRequestInterface $request)
     {
         $data = $request->getParsedBody();
-        $user = $this->userService->createUser($data);
-        return new JsonResponse($user, 201);
+        try {
+            $user = $this->userService->createUser($data);
+            return new JsonResponse($user, 201);
+        } catch (HydratingException $exception) {
+            return new JsonResponse($exception->getErrorsMap(), 412);
+        }
     }
 
     /**
@@ -87,6 +92,8 @@ class UserApiController
             return new JsonResponse($user);
         } catch (NoBeanFoundException $exception) {
             return new JsonResponse(["error" => "user not found"], 404);
+        } catch (HydratingException $exception) {
+            return new JsonResponse($exception->getErrorsMap(), 412);
         }
     }
 }
