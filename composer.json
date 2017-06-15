@@ -1,0 +1,25 @@
+{
+  "name": "dsavina/demo-metahydrator",
+  "description": "A demo using package thecodingmachine/metahydrator",
+  "type": "demo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dorian Savina",
+      "email": "d.savina@thecodingmachine.com"
+    }
+  ],
+  "require": {
+    "mouf/mouf": "~2.0",
+    "mouf/mvc.splash": "~8.0",
+    "mouf/database.tdbm": "~4.3",
+    "mouf/database.patcher": "~2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Demo\\": "src/php"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
