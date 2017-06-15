@@ -13,7 +13,8 @@
     "mouf/mouf": "~2.0",
     "mouf/mvc.splash": "~8.0",
     "mouf/database.tdbm": "~4.3",
-    "mouf/database.patcher": "~2.1"
+    "mouf/database.patcher": "~2.1",
+    "thecodingmachine/metahydrator": "~1.0"
   },
   "autoload": {
     "psr-4": {

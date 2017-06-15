@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "462cfd40144c97411b963c69c3e076d5",
+    "content-hash": "d85b028dfa02f50cf2dac3c7f9c83c25",
     "packages": [
         {
             "name": "analog/analog",
@@ -554,6 +554,62 @@
             "description": "Promoting container interoperability through standard service providers",
             "homepage": "https://github.com/container-interop/service-provider",
             "time": "2016-05-16T07:42:22+00:00"
+        },
+        {
+            "name": "danielstjules/stringy",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielstjules/Stringy.git",
+                "reference": "edbda419cbe4bcc3cb200b7c9811cb6597bf058b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/edbda419cbe4bcc3cb200b7c9811cb6597bf058b",
+                "reference": "edbda419cbe4bcc3cb200b7c9811cb6597bf058b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/polyfill-mbstring": "~1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stringy\\": "src/"
+                },
+                "files": [
+                    "src/Create.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel St. Jules",
+                    "email": "danielst.jules@gmail.com",
+                    "homepage": "http://www.danielstjules.com"
+                }
+            ],
+            "description": "A string manipulation library with multibyte support",
+            "homepage": "https://github.com/danielstjules/Stringy",
+            "keywords": [
+                "UTF",
+                "helpers",
+                "manipulation",
+                "methods",
+                "multibyte",
+                "string",
+                "utf-8",
+                "utility",
+                "utils"
+            ],
+            "time": "2017-03-02T20:43:29+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -2960,6 +3016,61 @@
             "time": "2017-06-05T14:28:16+00:00"
         },
         {
+            "name": "mouf/tdbm-hydrator",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/tdbm-hydrator.git",
+                "reference": "e1ac96e8836fa17c72647497dc79f46ae9ef549e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/tdbm-hydrator/zipball/e1ac96e8836fa17c72647497dc79f46ae9ef549e",
+                "reference": "e1ac96e8836fa17c72647497dc79f46ae9ef549e",
+                "shasum": ""
+            },
+            "require": {
+                "danielstjules/stringy": "^2.3.2",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.4.6",
+                "satooshi/php-coveralls": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "mouf": {
+                    "logo": "icon.png",
+                    "section": {
+                        "name": "Database"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mouf\\Hydrator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "A PHP hydrator allowing easy mapping between an array and an object.",
+            "homepage": "http://mouf-php.com/packages/mouf/tdbm-hydrator",
+            "keywords": [
+                "TDBM",
+                "hydrator"
+            ],
+            "time": "2016-07-05 15:08:08"
+        },
+        {
             "name": "mouf/utils.action.action-interface",
             "version": "v1.0.0",
             "source": {
@@ -4920,6 +5031,54 @@
             ],
             "description": "Build and modify your database schema using Doctrine DBAL and a fluid syntax.",
             "time": "2017-06-05 14:46:36"
+        },
+        {
+            "name": "thecodingmachine/metahydrator",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/metahydrator.git",
+                "reference": "2692ebdefdb61cc5ed408b49174e8d34a58a8a13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/metahydrator/zipball/2692ebdefdb61cc5ed408b49174e8d34a58a8a13",
+                "reference": "2692ebdefdb61cc5ed408b49174e8d34a58a8a13",
+                "shasum": ""
+            },
+            "require": {
+                "mouf/tdbm-hydrator": "~1.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.3.*",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MetaHydrator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dorian Savina",
+                    "email": "d.savina@thecodingmachine.com"
+                }
+            ],
+            "description": "A configurable implementation of mouf's Hydrator interface",
+            "homepage": "http://www.github.com/dsavina/metahydrator",
+            "keywords": [
+                "hydrator",
+                "mouf",
+                "parsing",
+                "validation"
+            ],
+            "time": "2017-06-01 13:19:20"
         },
         {
             "name": "thecodingmachine/middleware-list-universal-module",
