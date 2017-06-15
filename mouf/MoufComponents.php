@@ -1436,6 +1436,94 @@ return $driver;
       ),
     ),
   ),
+  'hydrator.address' => 
+  array (
+    'class' => 'MetaHydrator\\MetaHydrator',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 
+        array (
+          0 => 'hydrator.address.number',
+          1 => 'hydrator.address.street',
+        ),
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'hydrator.address.number' => 
+  array (
+    'class' => 'MetaHydrator\\Handler\\SimpleHydratingHandler',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'number',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'parser.string',
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'hydrator.address.street' => 
+  array (
+    'class' => 'MetaHydrator\\Handler\\SimpleHydratingHandler',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'street',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'parser.string',
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'value' => 
+        array (
+          0 => 'validator.required',
+        ),
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
   'hydrator.company' => 
   array (
     'class' => 'MetaHydrator\\MetaHydrator',
@@ -2995,6 +3083,27 @@ return rtrim(sys_get_temp_dir(), '/\\').'/mouftwigtemplatemain_'.$posixGetuid.st
 	 */
 	 public static function getHelperSet() {
 	 	return MoufManager::getMoufManager()->get('helperSet');
+	 }
+
+	/**
+	 * @return MetaHydrator\MetaHydrator
+	 */
+	 public static function getHydrator_address() {
+	 	return MoufManager::getMoufManager()->get('hydrator.address');
+	 }
+
+	/**
+	 * @return MetaHydrator\Handler\SimpleHydratingHandler
+	 */
+	 public static function getHydrator_address_number() {
+	 	return MoufManager::getMoufManager()->get('hydrator.address.number');
+	 }
+
+	/**
+	 * @return MetaHydrator\Handler\SimpleHydratingHandler
+	 */
+	 public static function getHydrator_address_street() {
+	 	return MoufManager::getMoufManager()->get('hydrator.address.street');
 	 }
 
 	/**
