@@ -920,6 +920,15 @@ return new \\Doctrine\\Common\\Annotations\\CachedReader($reader, $container->ge
         array (
         ),
       ),
+      1 => 
+      array (
+        'value' => NULL,
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
     ),
   ),
   'component.bootstrap' => 
