@@ -922,7 +922,7 @@ return new \\Doctrine\\Common\\Annotations\\CachedReader($reader, $container->ge
       ),
       1 => 
       array (
-        'value' => NULL,
+        'value' => 'hydrator.company',
         'parametertype' => 'object',
         'type' => 'string',
         'metadata' => 
@@ -1427,6 +1427,95 @@ return $driver;
         'value' => 
         array (
           'db' => 'dbalConnectionHelper',
+        ),
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'hydrator.company' => 
+  array (
+    'class' => 'MetaHydrator\\MetaHydrator',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 
+        array (
+          0 => 'hydrator.company.name',
+          1 => 'hydrator.company.activity',
+        ),
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'hydrator.company.activity' => 
+  array (
+    'class' => 'MetaHydrator\\Handler\\SimpleHydratingHandler',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'activity',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'parser.string',
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+  'hydrator.company.name' => 
+  array (
+    'class' => 'MetaHydrator\\Handler\\SimpleHydratingHandler',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'name',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'parser.string',
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'value' => 
+        array (
+          0 => 'validator.pattern.name',
+          1 => 'validator.unique.company_name',
         ),
         'parametertype' => 'object',
         'type' => 'string',
@@ -2332,6 +2421,51 @@ return rtrim(sys_get_temp_dir(), \'/\\\\\').\'/mouftwigtemplatemain_\'.$posixGet
       ),
     ),
   ),
+  'validator.unique.company_name' => 
+  array (
+    'class' => 'Demo\\Validator\\TDBMUniqueValidator',
+    'external' => false,
+    'weak' => false,
+    'constructor' => 
+    array (
+      0 => 
+      array (
+        'value' => 'tdbmService',
+        'parametertype' => 'object',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      1 => 
+      array (
+        'value' => 'companies',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'value' => 'name',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+      3 => 
+      array (
+        'value' => 'Cette compagnie existe déjà',
+        'parametertype' => 'primitive',
+        'type' => 'string',
+        'metadata' => 
+        array (
+        ),
+      ),
+    ),
+  ),
   'validator.unique.users_email' => 
   array (
     'class' => 'Demo\\Validator\\TDBMUniqueValidator',
@@ -2864,6 +2998,27 @@ return rtrim(sys_get_temp_dir(), '/\\').'/mouftwigtemplatemain_'.$posixGetuid.st
 	 }
 
 	/**
+	 * @return MetaHydrator\MetaHydrator
+	 */
+	 public static function getHydrator_company() {
+	 	return MoufManager::getMoufManager()->get('hydrator.company');
+	 }
+
+	/**
+	 * @return MetaHydrator\Handler\SimpleHydratingHandler
+	 */
+	 public static function getHydrator_company_activity() {
+	 	return MoufManager::getMoufManager()->get('hydrator.company.activity');
+	 }
+
+	/**
+	 * @return MetaHydrator\Handler\SimpleHydratingHandler
+	 */
+	 public static function getHydrator_company_name() {
+	 	return MoufManager::getMoufManager()->get('hydrator.company.name');
+	 }
+
+	/**
 	 * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
 	 */
 	 public static function getMessageServiceLibrary() {
@@ -3092,6 +3247,13 @@ return rtrim(sys_get_temp_dir(), '/\\').'/mouftwigtemplatemain_'.$posixGetuid.st
 	 */
 	 public static function getValidator_required() {
 	 	return MoufManager::getMoufManager()->get('validator.required');
+	 }
+
+	/**
+	 * @return Demo\Validator\TDBMUniqueValidator
+	 */
+	 public static function getValidator_unique_company_name() {
+	 	return MoufManager::getMoufManager()->get('validator.unique.company_name');
 	 }
 
 	/**
